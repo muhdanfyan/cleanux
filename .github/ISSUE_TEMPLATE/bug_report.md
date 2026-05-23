@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug or issue with Mole
+about: Report a bug or issue with Cleanux
 title: '[BUG] '
 labels: bug
 assignees: ''

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - File Operations
+# Cleanux - File Operations
 # Safe file and directory manipulation with validation
 
 set -euo pipefail

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lightweight alias to run Mole via `mo`
+# Lightweight alias to run Cleanux via `cleanux`
 
 set -euo pipefail
 

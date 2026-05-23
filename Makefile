@@ -1,4 +1,4 @@
-# Makefile for Mole
+# Makefile for Cleanux
 
 .PHONY: all build clean check format test test-go verify release release-amd64 release-arm64 mod-download
 

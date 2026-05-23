@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Application Protection Data
+# Cleanux - Application Protection Data
 # Static bundle ID and pattern lists, sourced by lib/core/app_protection.sh.
 # Keep this file data-only. Logic belongs in app_protection.sh.
 

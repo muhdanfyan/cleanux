@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - pkgutil receipt helpers.
+# Cleanux - pkgutil receipt helpers.
 # Finds package-installed app bundles outside the standard app locations.
 
 set -euo pipefail

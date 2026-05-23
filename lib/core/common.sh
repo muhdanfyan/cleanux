@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Common Functions Library
+# Cleanux - Common Functions Library
 # Main entry point that loads all core modules
 
 set -euo pipefail
@@ -95,11 +95,11 @@ update_via_homebrew() {
         stop_inline_spinner
     fi
 
-    # Upgrade Mole
+    # Upgrade Cleanux
     if [[ -t 1 ]]; then
-        start_inline_spinner "Upgrading Mole..."
+        start_inline_spinner "Upgrading Cleanux..."
     else
-        echo "Upgrading Mole..."
+        echo "Upgrading Cleanux..."
     fi
 
     local brew_upgrade_timeout="${MOLE_HOMEBREW_UPGRADE_TIMEOUT:-120}"
@@ -124,7 +124,7 @@ update_via_homebrew() {
         local installed_version
         installed_version=$(HOMEBREW_NO_ENV_HINTS=1 HOMEBREW_NO_AUTO_UPDATE=1 \
             run_with_timeout "$MOLE_TIMEOUT_PKG_LIST_SEC" brew list --versions mole 2> /dev/null | awk '{print $2}')
-        [[ -z "$installed_version" ]] && installed_version=$(mo --version 2> /dev/null | awk '/Mole version/ {print $3; exit}')
+        [[ -z "$installed_version" ]] && installed_version=$(mo --version 2> /dev/null | awk '/Cleanux version/ {print $3; exit}')
         echo ""
         echo -e "${GREEN}${ICON_SUCCESS}${NC} Already on latest version, ${installed_version:-$current_version}"
         echo ""
@@ -137,7 +137,7 @@ update_via_homebrew() {
         local new_version
         new_version=$(HOMEBREW_NO_ENV_HINTS=1 HOMEBREW_NO_AUTO_UPDATE=1 \
             run_with_timeout "$MOLE_TIMEOUT_PKG_LIST_SEC" brew list --versions mole 2> /dev/null | awk '{print $2}')
-        [[ -z "$new_version" ]] && new_version=$(mo --version 2> /dev/null | awk '/Mole version/ {print $3; exit}')
+        [[ -z "$new_version" ]] && new_version=$(mo --version 2> /dev/null | awk '/Cleanux version/ {print $3; exit}')
         echo ""
         echo -e "${GREEN}${ICON_SUCCESS}${NC} Updated to latest version, ${new_version:-$current_version}"
         echo ""

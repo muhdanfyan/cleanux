@@ -18,7 +18,7 @@ PURGE_PATHS_CONFIG="${PURGE_PATHS_CONFIG:-${PURGE_CONFIG_FILE:-$HOME/.config/mol
 # Ensure config file exists with helpful template
 ensure_config_template() {
     if [[ ! -f "$PURGE_PATHS_CONFIG" ]]; then
-        if ! write_purge_config "# Mole Purge Paths - Directories to scan for project artifacts
+        if ! write_purge_config "# Cleanux Purge Paths - Directories to scan for project artifacts
 # Add one path per line (supports ~ for home directory)
 # Delete all paths or this file to use defaults
 #

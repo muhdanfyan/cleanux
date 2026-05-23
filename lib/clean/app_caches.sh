@@ -348,7 +348,7 @@ clean_3d_tools() {
 }
 # Productivity apps.
 clean_productivity_apps() {
-    safe_clean ~/Library/Caches/com.tw93.MiaoYan/* "MiaoYan cache"
+    safe_clean ~/Library/Caches/com.muhdanfyan.MiaoYan/* "MiaoYan cache"
     safe_clean ~/Library/Caches/com.klee.desktop/* "Klee cache"
     safe_clean ~/Library/Caches/klee_desktop/* "Klee desktop cache"
     safe_clean ~/Library/Caches/com.orabrowser.app/* "Ora browser cache"

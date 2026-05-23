@@ -12,7 +12,7 @@ MOLE_COMMANDS=(
     "touchid:Configure Touch ID for sudo"
     "completion:Setup shell tab completion"
     "update:Update to latest version"
-    "remove:Remove Mole from system"
+    "remove:Remove Cleanux from system"
     "help:Show help"
     "version:Show version"
 )

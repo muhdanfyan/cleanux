@@ -124,7 +124,7 @@ opt_diag_family_label() {
 opt_diag_family_note() {
     case "$1" in
         cloudshell)
-            printf '%s\n' "External enterprise agent pressure detected. Mole will not terminate enterprise security processes; restart or policy checks must happen outside Mole."
+            printf '%s\n' "External enterprise agent pressure detected. Cleanux will not terminate enterprise security processes; restart or policy checks must happen outside Cleanux."
             ;;
         syspolicyd)
             printf '%s\n' "Gatekeeper and code-signature assessment activity is elevated."

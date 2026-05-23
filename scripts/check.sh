@@ -1,5 +1,5 @@
 #!/bin/bash
-# Code quality checks for Mole.
+# Code quality checks for Cleanux.
 # Auto-formats code, then runs lint and syntax checks.
 
 set -euo pipefail
@@ -64,7 +64,7 @@ readonly ICON_ERROR="☻"
 readonly ICON_WARNING="●"
 readonly ICON_LIST="•"
 
-echo -e "${BLUE}=== Mole Check, ${MODE} ===${NC}\n"
+echo -e "${BLUE}=== Cleanux Check, ${MODE} ===${NC}\n"
 
 SHELL_FILES=$(find . -type f \( -name "*.sh" -o -name "mole" \) \
     -not -path "./.git/*" \
@@ -85,7 +85,7 @@ if [[ "$MODE" == "format" ]]; then
 
     if command -v goimports > /dev/null 2>&1; then
         echo -e "${YELLOW}Formatting Go code, goimports...${NC}"
-        goimports -w -local github.com/tw93/mole ./cmd ./internal
+        goimports -w -local github.com/muhdanfyan/mole ./cmd ./internal
         echo -e "${GREEN}${ICON_SUCCESS} Go formatting complete${NC}\n"
     elif command -v go > /dev/null 2>&1; then
         echo -e "${YELLOW}Formatting Go code, gofmt...${NC}"
@@ -110,7 +110,7 @@ if [[ "$MODE" != "check" ]]; then
 
     if command -v goimports > /dev/null 2>&1; then
         echo -e "${YELLOW}2. Formatting Go code, goimports...${NC}"
-        goimports -w -local github.com/tw93/mole ./cmd ./internal
+        goimports -w -local github.com/muhdanfyan/mole ./cmd ./internal
         echo -e "${GREEN}${ICON_SUCCESS} Go formatting applied${NC}\n"
     elif command -v go > /dev/null 2>&1; then
         echo -e "${YELLOW}2. Formatting Go code, gofmt...${NC}"

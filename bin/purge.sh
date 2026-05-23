@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Purge command.
+# Cleanux - Purge command.
 # Cleans heavy project build artifacts.
 # Interactive selection by project.
 
@@ -285,7 +285,7 @@ perform_purge() {
 
 # Show help message
 show_help() {
-    echo -e "${PURPLE_BOLD}Mole Purge${NC}, Clean old project build artifacts"
+    echo -e "${PURPLE_BOLD}Cleanux Purge${NC}, Clean old project build artifacts"
     echo ""
     echo -e "${YELLOW}Usage:${NC} mo purge [options]"
     echo ""

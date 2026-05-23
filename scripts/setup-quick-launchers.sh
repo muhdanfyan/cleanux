@@ -1,5 +1,5 @@
 #!/bin/bash
-# Create Raycast script commands and Alfred keywords for Mole (clean + uninstall).
+# Create Raycast script commands and Alfred keywords for Cleanux (clean + uninstall).
 
 set -euo pipefail
 
@@ -15,11 +15,11 @@ ICON_WARN="!"
 ICON_ERR="✗"
 
 LAUNCHER_COMMAND_SPECS=(
-    "clean|Mole Clean|Deep system cleanup with Mole|Run Mole clean"
-    "uninstall|Mole Uninstall|Uninstall applications with Mole|Uninstall apps via Mole"
-    "optimize|Mole Optimize|System health checks and optimization|System health and optimization"
-    "analyze|Mole Analyze|Disk space analysis with Mole|Disk space analysis"
-    "status|Mole Status|Live system status dashboard|Live system dashboard"
+    "clean|Cleanux Clean|Deep system cleanup with Cleanux|Run Cleanux clean"
+    "uninstall|Cleanux Uninstall|Uninstall applications with Cleanux|Uninstall apps via Cleanux"
+    "optimize|Cleanux Optimize|System health checks and optimization|System health and optimization"
+    "analyze|Cleanux Analyze|Disk space analysis with Cleanux|Disk space analysis"
+    "status|Cleanux Status|Live system status dashboard|Live system dashboard"
 )
 
 log_step() { echo -e "${BLUE}${ICON_STEP}${NC} $1"; }
@@ -42,7 +42,7 @@ detect_mo() {
     elif command -v mole > /dev/null 2>&1; then
         command -v mole
     else
-        log_error "Mole not found. Install it first via Homebrew or ./install.sh."
+        log_error "Cleanux not found. Install it first via Homebrew or ./install.sh."
         exit 1
     fi
 }
@@ -64,7 +64,7 @@ write_raycast_script() {
 # @raycast.schemaVersion 1
 # @raycast.title ${title}
 # @raycast.mode fullOutput
-# @raycast.packageName Mole
+# @raycast.packageName Cleanux
 # @raycast.description ${description}
 
 # Optional parameters:
@@ -306,7 +306,7 @@ create_alfred_workflow() {
     log_step "Installing Alfred workflows..."
     for entry in "${LAUNCHER_COMMAND_SPECS[@]}"; do
         IFS="|" read -r subcommand title _ subtitle <<< "$entry"
-        bundle="fun.tw93.mole.${subcommand}"
+        bundle="fun.muhdanfyan.mole.${subcommand}"
         keyword="${subcommand}"
         command="\"${mo_bin}\" ${subcommand}"
         local workflow_uid="user.workflow.$(uuid | LC_ALL=C tr '[:upper:]' '[:lower:]')"
@@ -325,7 +325,7 @@ create_alfred_workflow() {
     <key>bundleid</key>
     <string>${bundle}</string>
     <key>createdby</key>
-    <string>Mole</string>
+    <string>Cleanux</string>
     <key>name</key>
     <string>${title}</string>
     <key>objects</key>
@@ -408,12 +408,12 @@ EOF
 main() {
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  Mole Quick Launchers"
+    echo "  Cleanux Quick Launchers"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
     local mo_bin
     mo_bin="$(detect_mo)"
-    log_step "Detected Mole binary at: ${mo_bin}"
+    log_step "Detected Cleanux binary at: ${mo_bin}"
 
     create_raycast_commands "$mo_bin"
     create_alfred_workflow "$mo_bin"

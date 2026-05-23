@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Bundle ID resolution.
+# Cleanux - Bundle ID resolution.
 # Resolves whether a bundle ID belongs to an installed application on this system.
 # Spotlight (mdfind) is unreliable: indexing can be off for /Applications, Homebrew
 # installs sometimes skip metadata importers, and Spotlight rarely indexes helpers

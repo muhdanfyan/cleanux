@@ -53,7 +53,7 @@ remove_stale_completion_entries() {
     local config_file="$1"
     local success_message="$2"
 
-    if [[ ! -f "$config_file" ]] || ! grep -Eq "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" 2> /dev/null; then
+    if [[ ! -f "$config_file" ]] || ! grep -Eq "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" 2> /dev/null; then
         return 1
     fi
 
@@ -61,7 +61,7 @@ remove_stale_completion_entries() {
     local temp_file
     original_mode="$(stat -f '%Mp%Lp' "$config_file" 2> /dev/null || true)"
     temp_file="$(mktemp)"
-    grep -Ev "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
+    grep -Ev "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
     mv "$temp_file" "$config_file"
     [[ -n "$original_mode" ]] && chmod "$original_mode" "$config_file" 2> /dev/null || true
     [[ -n "$success_message" ]] && echo -e "${GREEN}${ICON_SUCCESS}${NC} $success_message"
@@ -120,7 +120,7 @@ if [[ $# -eq 0 ]]; then
             if [[ "${MOLE_DRY_RUN:-0}" != "1" ]]; then
                 remove_stale_completion_entries "$config_fish" "Removed stale completion entries from config.fish" || true
             fi
-            log_error "mole not found in PATH, install Mole before enabling completion"
+            log_error "mole not found in PATH, install Cleanux before enabling completion"
             exit 1
         fi
 
@@ -166,7 +166,7 @@ if [[ $# -eq 0 ]]; then
         mkdir -p "$fish_dir"
         "$completion_name" completion fish > "$mole_file"
         # mo.fish sources mole.fish so Fish loads mo completions on `mo<Tab>`
-        printf '# Mole completions for mo (alias) -- auto-generated, do not edit\n' > "$mo_file"
+        printf '# Cleanux completions for mo (alias) -- auto-generated, do not edit\n' > "$mo_file"
         printf 'source %s\n' "$mole_file" >> "$mo_file"
 
         if [[ -f "$mole_file" ]]; then
@@ -196,7 +196,7 @@ if [[ $# -eq 0 ]]; then
     esac
 
     if [[ -z "$completion_name" ]]; then
-        if [[ -f "$config_file" ]] && grep -Eq "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" 2> /dev/null; then
+        if [[ -f "$config_file" ]] && grep -Eq "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" 2> /dev/null; then
             if [[ "${MOLE_DRY_RUN:-0}" == "1" ]]; then
                 echo -e "${GRAY}${ICON_REVIEW} [DRY RUN] Would remove stale completion entries from $config_file${NC}"
                 echo ""
@@ -204,7 +204,7 @@ if [[ $# -eq 0 ]]; then
                 original_mode=""
                 original_mode="$(stat -f '%Mp%Lp' "$config_file" 2> /dev/null || true)"
                 temp_file="$(mktemp)"
-                grep -Ev "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
+                grep -Ev "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
                 mv "$temp_file" "$config_file"
                 if [[ -n "$original_mode" ]]; then
                     chmod "$original_mode" "$config_file" 2> /dev/null || true
@@ -213,7 +213,7 @@ if [[ $# -eq 0 ]]; then
                 echo ""
             fi
         fi
-        log_error "mole not found in PATH, install Mole before enabling completion"
+        log_error "mole not found in PATH, install Cleanux before enabling completion"
         exit 1
     fi
 
@@ -228,14 +228,14 @@ if [[ $# -eq 0 ]]; then
         original_mode=""
         original_mode="$(stat -f '%Mp%Lp' "$config_file" 2> /dev/null || true)"
         temp_file="$(mktemp)"
-        grep -Ev "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
+        grep -Ev "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
         mv "$temp_file" "$config_file"
         if [[ -n "$original_mode" ]]; then
             chmod "$original_mode" "$config_file" 2> /dev/null || true
         fi
         {
             echo ""
-            echo "# Mole shell completion"
+            echo "# Cleanux shell completion"
             echo "$completion_line"
         } >> "$config_file"
         echo ""
@@ -277,12 +277,12 @@ if [[ $# -eq 0 ]]; then
         touch "$config_file"
     fi
 
-    # Remove previous Mole completion lines to avoid duplicates
+    # Remove previous Cleanux completion lines to avoid duplicates
     if [[ -f "$config_file" ]]; then
         original_mode=""
         original_mode="$(stat -f '%Mp%Lp' "$config_file" 2> /dev/null || true)"
         temp_file="$(mktemp)"
-        grep -Ev "(^# Mole shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
+        grep -Ev "(^# Cleanux shell completion$|(mole|mo)[[:space:]]+completion)" "$config_file" > "$temp_file" || true
         mv "$temp_file" "$config_file"
         if [[ -n "$original_mode" ]]; then
             chmod "$original_mode" "$config_file" 2> /dev/null || true
@@ -292,7 +292,7 @@ if [[ $# -eq 0 ]]; then
     # Add completion line
     {
         echo ""
-        echo "# Mole shell completion"
+        echo "# Cleanux shell completion"
         echo "$completion_line"
     } >> "$config_file"
 

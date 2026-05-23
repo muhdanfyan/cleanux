@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Clean command.
+# Cleanux - Clean command.
 # Runs cleanup modules with optional sudo.
 # Supports dry-run and whitelist.
 
@@ -909,7 +909,7 @@ start_cleanup() {
 
         ensure_user_file "$EXPORT_LIST_FILE"
         cat > "$EXPORT_LIST_FILE" << EOF
-# Mole Cleanup Preview - $(date '+%Y-%m-%d %H:%M:%S')
+# Cleanux Cleanup Preview - $(date '+%Y-%m-%d %H:%M:%S')
 #
 # How to protect files:
 # 1. Copy any path below to ~/.config/mole/whitelist

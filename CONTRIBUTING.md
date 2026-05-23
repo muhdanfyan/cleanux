@@ -1,4 +1,4 @@
-# Contributing to Mole
+# Contributing to Cleanux
 
 ## Setup
 

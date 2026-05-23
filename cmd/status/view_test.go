@@ -952,7 +952,7 @@ func TestSparkline(t *testing.T) {
 	}
 }
 
-func TestRenderHeaderErrorReturnsMoleOnce(t *testing.T) {
+func TestRenderHeaderErrorReturnsCleanuxOnce(t *testing.T) {
 	header, mole := renderHeader(MetricsSnapshot{}, "boom", 0, 120, false)
 
 	if mole != "" {
@@ -1146,7 +1146,7 @@ func TestModelViewPadsToTerminalHeight(t *testing.T) {
 	}
 }
 
-func TestModelViewErrorRendersSingleMole(t *testing.T) {
+func TestModelViewErrorRendersSingleCleanux(t *testing.T) {
 	m := model{
 		width:      120,
 		height:     40,

@@ -605,7 +605,7 @@ readonly ORPHAN_DOTDIR_KNOWN_SAFE=(
     ".ssh" ".gnupg" ".gpg" ".pass""word-store"
     # Git
     ".gitconfig" ".gitignore_global" ".git-credentials" ".gitattributes_global"
-    # Language tools (Mole handles their caches separately)
+    # Language tools (Cleanux handles their caches separately)
     ".pyenv" ".rbenv" ".nvm" ".nodenv" ".goenv" ".jenv"
     ".rustup" ".cargo" ".ghcup" ".stack" ".cabal"
     ".sdkman" ".jabba" ".asdf" ".mise" ".rtx" ".volta" ".fnm"

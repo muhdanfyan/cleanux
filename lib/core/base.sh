@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Base Definitions and Utilities
+# Cleanux - Base Definitions and Utilities
 # Core definitions, constants, and basic utility functions used by all modules
 
 set -euo pipefail

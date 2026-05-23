@@ -1,10 +1,10 @@
-# Mole Security Audit
+# Cleanux Security Audit
 
-This document describes the security-relevant behavior of the current `main` branch, updated for V1.39.1 on 2026-05-23. It is intended as a public description of Mole's safety boundaries, destructive-operation controls, release integrity signals, and known limitations.
+This document describes the security-relevant behavior of the current `main` branch, updated for V1.39.1 on 2026-05-23. It is intended as a public description of Cleanux's safety boundaries, destructive-operation controls, release integrity signals, and known limitations.
 
 ## Executive Summary
 
-Mole is a local system maintenance tool. Its main risk surface is not remote code execution; it is unintended local damage caused by cleanup, uninstall, optimize, purge, installer cleanup, or other destructive operations.
+Cleanux is a local system maintenance tool. Its main risk surface is not remote code execution; it is unintended local damage caused by cleanup, uninstall, optimize, purge, installer cleanup, or other destructive operations.
 
 The project is designed around safety-first defaults:
 
@@ -14,7 +14,7 @@ The project is designed around safety-first defaults:
 - symlink handling is conservative
 - preview, confirmation, timeout, and operation logging are used to make destructive behavior more visible and auditable
 
-Mole prioritizes bounded cleanup over aggressive cleanup. When uncertainty exists, the tool should refuse, skip, or require stronger confirmation instead of widening deletion scope.
+Cleanux prioritizes bounded cleanup over aggressive cleanup. When uncertainty exists, the tool should refuse, skip, or require stronger confirmation instead of widening deletion scope.
 
 The project continues to strengthen:
 
@@ -24,7 +24,7 @@ The project continues to strengthen:
 
 ## Threat Surface
 
-The highest-risk areas in Mole are:
+The highest-risk areas in Cleanux are:
 
 - direct file and directory deletion
 - recursive cleanup across common user and system cache locations
@@ -138,7 +138,7 @@ The current design rationale is kept in this audit document so the safety model 
 
 ## Protected Directories and Categories
 
-Mole has explicit protected-path and protected-category logic in addition to root-path blocking.
+Cleanux has explicit protected-path and protected-category logic in addition to root-path blocking.
 
 Protected or conservatively handled categories include:
 
@@ -190,7 +190,7 @@ Path traversal handling is also explicit:
 
 ## Privilege Escalation and Sudo Boundaries
 
-Mole uses sudo for a subset of system-maintenance paths, but elevated behavior is still bounded by validation and protected-path rules.
+Cleanux uses sudo for a subset of system-maintenance paths, but elevated behavior is still bounded by validation and protected-path rules.
 
 Key properties:
 
@@ -205,11 +205,11 @@ Key properties:
 - sudo credential prompting passes through the system's native PAM prompt rather than a hardcoded string, ensuring correct behavior across locales and PAM configurations
 - Touch ID PAM configuration (`mo touchid`) uses `sudo install -m 444 -o root -g wheel` for atomic file writes, preventing temporary permission windows where PAM files could be user-writable (fixed in V1.39.0; prior versions used `sudo mv` which preserved temp-file ownership)
 
-When sudo is denied or unavailable, Mole prefers skipping privileged cleanup to forcing execution through unsafe fallback behavior.
+When sudo is denied or unavailable, Cleanux prefers skipping privileged cleanup to forcing execution through unsafe fallback behavior.
 
 ## Sensitive Data Exclusions
 
-Mole is not intended to aggressively delete high-value user data.
+Cleanux is not intended to aggressively delete high-value user data.
 
 Examples of conservative handling include:
 
@@ -232,7 +232,7 @@ This reduces the risk of incorrectly classifying active software as orphaned dat
 
 ## Dry-Run, Confirmation, and Audit Logging
 
-Mole exposes multiple safety controls before and during destructive actions:
+Cleanux exposes multiple safety controls before and during destructive actions:
 
 - `--dry-run` previews are available for major destructive commands
 - dry-run output deduplicates targets by filesystem identity (device+inode), so aliased paths and symlinks do not appear as separate items
@@ -253,7 +253,7 @@ Relevant timeout behavior includes:
 
 ## Release Integrity and Continuous Security Signals
 
-Mole treats release trust as part of its security posture, not just a packaging detail.
+Cleanux treats release trust as part of its security posture, not just a packaging detail.
 
 Repository-level signals include:
 

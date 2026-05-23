@@ -1,5 +1,5 @@
 #!/bin/bash
-# Test runner for Mole.
+# Test runner for Cleanux.
 # Runs unit, Go, and integration tests.
 # Exits non-zero on failures.
 
@@ -71,7 +71,7 @@ export PATH="$TEST_SYSTEM_STUB_DIR:$PATH"
 source "$PROJECT_ROOT/lib/core/file_ops.sh"
 
 echo "==============================="
-echo "Mole Test Runner"
+echo "Cleanux Test Runner"
 echo "==============================="
 echo ""
 

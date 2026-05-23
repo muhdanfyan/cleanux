@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Logging System
+# Cleanux - Logging System
 # Centralized logging with rotation support
 
 set -euo pipefail
@@ -341,7 +341,7 @@ log_system_info() {
     # Start block in debug log file
     {
         echo "----------------------------------------------------------------------"
-        echo "Mole Debug Session, $(date '+%Y-%m-%d %H:%M:%S')"
+        echo "Cleanux Debug Session, $(date '+%Y-%m-%d %H:%M:%S')"
         echo "----------------------------------------------------------------------"
         echo "User: $USER"
         echo "Hostname: $(hostname)"

@@ -7,7 +7,7 @@ import (
 
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/tw93/mole/internal/units"
+	"github.com/muhdanfyan/mole/internal/units"
 )
 
 var (
@@ -38,7 +38,7 @@ const (
 	iconProcs   = "❊"
 )
 
-// Mole body frames (facing right).
+// Cleanux body frames (facing right).
 var moleBody = [][]string{
 	{
 		`     /\_/\`,
@@ -94,8 +94,8 @@ var moleBodyMirror = [][]string{
 	},
 }
 
-// getMoleFrame renders the animated mole.
-func getMoleFrame(animFrame int, termWidth int) string {
+// getCleanuxFrame renders the animated mole.
+func getCleanuxFrame(animFrame int, termWidth int) string {
 	moleWidth := 15
 	maxPos := max(termWidth-moleWidth, 0)
 
@@ -219,7 +219,7 @@ func renderHeader(m MetricsSnapshot, errMsg string, animFrame int, termWidth int
 	// Show cat unless hidden - render mole centered below header
 	var mole string
 	if !catHidden {
-		mole = getMoleFrame(animFrame, termWidth)
+		mole = getCleanuxFrame(animFrame, termWidth)
 	}
 
 	if errMsg != "" {

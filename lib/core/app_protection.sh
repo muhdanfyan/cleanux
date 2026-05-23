@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Application Protection
+# Cleanux - Application Protection
 # System critical and data-protected application lists
 
 set -euo pipefail
@@ -122,7 +122,7 @@ should_protect_from_uninstall() {
 }
 
 # Print the vendor name when an app must be removed through its official
-# uninstaller instead of Mole's generic Trash/delete path.
+# uninstaller instead of Cleanux's generic Trash/delete path.
 official_uninstaller_vendor() {
     local bundle_id="${1:-}"
     local display_name="${2:-}"
@@ -307,7 +307,7 @@ should_protect_path() {
         */Library/Preferences/com.apple.dock.plist | */Library/Preferences/com.apple.finder.plist)
             return 0
             ;;
-        # Protect Mole's own runtime logs so cleanup cannot delete its active log targets.
+        # Protect Cleanux's own runtime logs so cleanup cannot delete its active log targets.
         */Library/Logs/mole | */Library/Logs/mole/ | */Library/Logs/mole/*)
             return 0
             ;;
@@ -378,7 +378,7 @@ should_protect_path() {
     esac
 
     # 6. Match full path against protected patterns
-    # This catches things like /Users/tw93/Library/Caches/Claude when pattern is *Claude*
+    # This catches things like /Users/muhdanfyan/Library/Caches/Claude when pattern is *Claude*
     # Skip for container cache/tmp paths: bundle ID was already checked in step 3,
     # and critical containers are caught by steps 1/4/5.
     if [[ "$_container_cache_path" != "true" ]]; then

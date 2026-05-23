@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Centralized timeout constants for run_with_timeout calls.
+# Cleanux - Centralized timeout constants for run_with_timeout calls.
 #
 # Goal: when someone needs to tune "all quick command-availability probes"
 # or "all package-manager cleanup ceilings", they edit ONE place instead

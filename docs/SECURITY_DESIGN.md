@@ -1,4 +1,4 @@
-# Mole Security Design
+# Cleanux Security Design
 
 This document describes the safety mechanisms that prevent mole from
 destroying data it shouldn't. It is written for reviewers, contributors,
@@ -13,7 +13,7 @@ and `tests/path_validation_fuzz.bats`.
 
 ## Threat model
 
-Mole is a user-invoked CLI that performs three classes of destructive
+Cleanux is a user-invoked CLI that performs three classes of destructive
 operations on the local machine:
 
 1. **Cleanup** — remove caches, logs, and temp data the OS or apps regenerate.

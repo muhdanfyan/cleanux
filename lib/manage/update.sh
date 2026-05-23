@@ -102,7 +102,7 @@ ask_for_updates() {
     fi
 
     if [[ "${MOLE_UPDATE_AVAILABLE:-}" == "true" ]]; then
-        echo -ne "${YELLOW}Update Mole now?${NC} ${GRAY}Enter confirm / ESC cancel${NC}: "
+        echo -ne "${YELLOW}Update Cleanux now?${NC} ${GRAY}Enter confirm / ESC cancel${NC}: "
 
         local key
         if ! key=$(read_key); then
@@ -132,25 +132,25 @@ ask_for_updates() {
 # Perform all pending updates
 # Returns: 0 if all succeeded, 1 if some failed
 perform_updates() {
-    # Only handle Mole updates here; Homebrew/App Store/macOS are manual (tips shown in ask_for_updates)
+    # Only handle Cleanux updates here; Homebrew/App Store/macOS are manual (tips shown in ask_for_updates)
     local updated_count=0
     local total_count=0
 
     if [[ -n "${MOLE_UPDATE_AVAILABLE:-}" && "${MOLE_UPDATE_AVAILABLE}" == "true" ]]; then
-        echo -e "${BLUE}Updating Mole...${NC}"
+        echo -e "${BLUE}Updating Cleanux...${NC}"
         local mole_bin="${SCRIPT_DIR}/../../mole"
         [[ ! -f "$mole_bin" ]] && mole_bin=$(command -v mole 2> /dev/null || echo "")
 
         if [[ -x "$mole_bin" ]]; then
             if "$mole_bin" update 2>&1 | grep -qE "(Updated|latest version)"; then
-                echo -e "${GREEN}${ICON_SUCCESS}${NC} Mole updated"
+                echo -e "${GREEN}${ICON_SUCCESS}${NC} Cleanux updated"
                 reset_mole_cache
                 updated_count=$((updated_count + 1))
             else
-                echo -e "${RED}✗${NC} Mole update failed"
+                echo -e "${RED}✗${NC} Cleanux update failed"
             fi
         else
-            echo -e "${RED}✗${NC} Mole executable not found"
+            echo -e "${RED}✗${NC} Cleanux executable not found"
         fi
         echo ""
         total_count=1

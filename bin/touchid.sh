@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Touch ID command.
+# Cleanux - Touch ID command.
 # Configures sudo with Touch ID.
 # Guided toggle with safety checks.
 

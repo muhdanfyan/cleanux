@@ -1,10 +1,10 @@
 ---
 name: release-notes
-description: Publish curated release notes for a Mole `V<version>` tag. Encodes the V1.37.0+ bilingual format, the gh release edit (not create) flow, sponsors graphql query, and the six-reaction set. User-only because publishing is a side effect that touches the public release page.
+description: Publish curated release notes for a Cleanux `V<version>` tag. Encodes the V1.37.0+ bilingual format, the gh release edit (not create) flow, sponsors graphql query, and the six-reaction set. User-only because publishing is a side effect that touches the public release page.
 disable-model-invocation: true
 ---
 
-# Mole release notes
+# Cleanux release notes
 
 This skill drives the curated-notes step that runs **after** `release.yml` has finished. The workflow creates the GitHub Release with assets but with `generate_release_notes: false`, so notes must be added in a follow-up `gh release edit` (never `gh release create` — the release already exists, and `create` will conflict).
 
@@ -16,8 +16,8 @@ Before drafting, confirm:
 2. **CodeName + emoji**. Ask the user. The title format is `V<version> <CodeName> <emoji>`.
 3. **Release commit range**. `git log <previous-tag>..V<version> --oneline` gives the raw material.
 4. **Sponsors**. Run `scripts/sponsors.sh` from this skill dir.
-5. **Contributors in this range**. `git log <previous-tag>..V<version> --pretty='%an' | sort -u`. Exclude `tw93` and bots.
-6. **Verify release exists**. `gh release view V<version> --repo tw93/Mole --json id,name` should return non-empty. If it doesn't, the workflow hasn't finished — wait, don't `gh release create`.
+5. **Contributors in this range**. `git log <previous-tag>..V<version> --pretty='%an' | sort -u`. Exclude `muhdanfyan` and bots.
+6. **Verify release exists**. `gh release view V<version> --repo muhdanfyan/Cleanux --json id,name` should return non-empty. If it doesn't, the workflow hasn't finished — wait, don't `gh release create`.
 
 ## Pre-flight (cross-check against CLAUDE.md)
 
@@ -34,7 +34,7 @@ If any fail, stop. The notes can wait; a bad release tag cannot.
 ## Format
 
 Strictly follow V1.37.0+ shape. Compare against a recent release if unsure:
-`gh release view V1.37.0 --repo tw93/Mole --json body --jq .body`.
+`gh release view V1.37.0 --repo muhdanfyan/Cleanux --json body --jq .body`.
 
 Structure:
 
@@ -54,7 +54,7 @@ Structure:
 Sponsors: <@handle1> <@handle2> ...
 Contributors: <@handle1> <@handle2> ...
 
-> Mole · macOS cleanup · https://github.com/tw93/Mole
+> Cleanux · macOS cleanup · https://github.com/muhdanfyan/Cleanux
 ```
 
 ### Format rules (all are documented bugs that have shipped before)
@@ -72,7 +72,7 @@ Contributors: <@handle1> <@handle2> ...
 Once the user approves the draft:
 
 ```bash
-gh release edit V<version> --repo tw93/Mole \
+gh release edit V<version> --repo muhdanfyan/Cleanux \
   --title "V<version> <CodeName> <emoji>" \
   --notes-file <path-to-draft>
 ```
@@ -83,7 +83,7 @@ Then add the six reactions: `bash scripts/post-reactions.sh V<version>`.
 
 ## After publish
 
-- `gh release view V<version> --repo tw93/Mole --web` (open in browser) so the user can eyeball it.
+- `gh release view V<version> --repo muhdanfyan/Cleanux --web` (open in browser) so the user can eyeball it.
 - Remind the user: Homebrew tap + Homebrew core PR are workflow-driven and should already be in flight; do not re-run them manually unless the workflow log shows a failure.
 
 ## When NOT to act

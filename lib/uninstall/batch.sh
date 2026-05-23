@@ -704,7 +704,7 @@ batch_uninstall_applications() {
 
     # Establish sudo once before uninstalling apps that need admin access.
     # Homebrew cask removal can prompt via sudo during uninstall hooks, which
-    # does not work reliably under Mole's timed non-interactive execution path.
+    # does not work reliably under Cleanux's timed non-interactive execution path.
     if [[ "${MOLE_DRY_RUN:-0}" != "1" ]] &&
         { [[ ${#sudo_apps[@]} -gt 0 ]] || [[ ${#brew_cask_apps[@]} -gt 0 ]]; }; then
         local admin_prompt="Admin required to uninstall selected apps"
@@ -799,7 +799,7 @@ batch_uninstall_applications() {
                 else
                     # Only fall back to manual app removal when Homebrew no longer
                     # tracks the cask. Otherwise we would recreate the mismatch
-                    # where brew still reports the app as installed after Mole
+                    # where brew still reports the app as installed after Cleanux
                     # removes the bundle manually.
                     local cask_state=2
                     if command -v is_brew_cask_installed > /dev/null 2>&1; then
@@ -1147,7 +1147,7 @@ batch_uninstall_applications() {
         done
 
         summary_details+=("${ICON_REVIEW} Local Network permissions on macOS 15+ can outlive app removal: ${YELLOW}${local_network_list}${NC}")
-        summary_details+=("${GRAY}${ICON_SUBLIST}${NC} Mole does not reset ${GRAY}/Volumes/Data/Library/Preferences/com.apple.networkextension*.plist${NC}")
+        summary_details+=("${GRAY}${ICON_SUBLIST}${NC} Cleanux does not reset ${GRAY}/Volumes/Data/Library/Preferences/com.apple.networkextension*.plist${NC}")
         summary_details+=("${GRAY}${ICON_SUBLIST}${NC} If stale or duplicate entries remain, clear them manually in Recovery mode because the reset is global${NC}")
     fi
 

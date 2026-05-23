@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - UI Components
+# Cleanux - UI Components
 # Terminal UI utilities: cursor control, keyboard input, spinners, menus
 
 set -euo pipefail

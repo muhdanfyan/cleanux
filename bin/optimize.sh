@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Optimize command.
+# Cleanux - Optimize command.
 # Runs system maintenance tasks.
 # Supports dry-run where applicable.
 

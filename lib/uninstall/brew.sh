@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mole - Homebrew Cask Uninstallation Support
+# Cleanux - Homebrew Cask Uninstallation Support
 # Detects Homebrew-managed casks via Caskroom linkage and uninstalls them via brew
 
 set -euo pipefail
